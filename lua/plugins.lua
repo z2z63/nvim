@@ -1,6 +1,9 @@
 return {
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
-	{ "neovim/nvim-lspconfig", version = "*" },
+	{
+		"neovim/nvim-lspconfig",
+		version = "*",
+	},
 	{
 		"mason-org/mason.nvim",
 		opts = {},
@@ -80,9 +83,9 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
-			require("lspconfig").clangd.setup({
-				capabilities = capabilities,
-			})
+			-- require("lspconfig").jdtls.setup({
+			-- 	capabilities = capabilities,
+			-- })
 		end,
 	},
 	{
@@ -222,5 +225,15 @@ return {
 		keys = {
 			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 		},
+	},
+	{
+		"JavaHello/spring-boot.nvim",
+		ft = { "java", "yaml", "jproperties" },
+		dependencies = {
+			"neovim/nvim-lspconfig", -- or nvim-java, nvim-lspconfig
+			-- "ibhagwan/fzf-lua", -- 可选，用于符号选择等UI功能。也可以使用其他选择器（例如 telescope.nvim）。
+		},
+		---@type bootls.Config
+		opts = {},
 	},
 }

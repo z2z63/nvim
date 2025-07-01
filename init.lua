@@ -50,7 +50,15 @@ require("lazy").setup({
 })
 
 vim.lsp.enable("lua_ls")
-vim.lsp.enable("jdtls")
+-- vim.lsp.enable("jdtls")
+-- 添加全局命令处理器
+require('spring_boot').init_lsp_commands()
+-- 添加 spring-boot jdtls 扩展 jar 包
+require("lspconfig").jdtls.setup {
+  init_options = {
+    bundles = require("spring_boot").java_extensions(),
+  },
+}
 
 require("keymap")
 require("lsp")

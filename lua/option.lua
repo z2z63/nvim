@@ -17,3 +17,6 @@ vim.opt.winborder = 'rounded'
 
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
+
+-- vim.wo.foldmethod = 'expr'
+-- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

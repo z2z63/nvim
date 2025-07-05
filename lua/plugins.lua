@@ -8,7 +8,24 @@ return {
 		"mason-org/mason.nvim",
 		opts = {},
 	},
-	{ "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
+		lazy = false,
+		build = ":TSUpdate",
+		config = function()
+			local configs = require("nvim-treesitter.configs")
+			configs.setup({
+				ensure_installed = {
+					"lua",
+					"java",
+				},
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+		end,
+	},
 	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files

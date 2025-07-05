@@ -62,5 +62,5 @@ require("lspconfig").jdtls.setup {
 
 require("keymap")
 require("lsp")
-require("command")
+-- require("command")
 require("highlight")
